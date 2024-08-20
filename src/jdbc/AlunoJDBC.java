@@ -109,7 +109,6 @@ public class AlunoJDBC {
 
 	public void alterar(Aluno a) {
 	    try {
-	        // Abrir a conexão, caso ainda não esteja aberta
 	        con = db.getConexao();
 	        sql = "UPDATE aluno SET nome = ?, sexo = ?, dt_nasc = ? WHERE id = ?";
 	        pst = con.prepareStatement(sql);
@@ -128,7 +127,7 @@ public class AlunoJDBC {
 	        }
 	    } catch (Exception e) {
 	        System.out.println("Erro ao alterar aluno: " + e.getMessage());
-	        e.printStackTrace();  // Adicionado para ajudar a debugar o erro
+	        e.printStackTrace();
 	    } finally {
 	        try {
 	            if (pst != null && !pst.isClosed()) {
